@@ -1,0 +1,15 @@
+<nav>
+    <a href="/">
+        <img class="logotipo" src="{{ asset('images/logotipo.svg') }}" alt="Logotipo Artisan">
+    </a>
+    <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+    </div>
+    <ul class="nav-list">
+        <li><a class="nav-link" href="#">Projetos</a></li>
+        <li><a class="nav-link" href="#">Contato</a></li>
+        <li><a class="default-button" href="/login">Entrar</a></li>
+    </ul>
+</nav>
