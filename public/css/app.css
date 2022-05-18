@@ -201,3 +201,78 @@ body {
   .atualization-table-tbody-tr:hover {
     border-left: 1px solid #FFBA08; 
   }
+
+  /* LOGIN */
+
+  .login-wrap {
+    width: 400px;
+    height: 500px;
+		position:absolute;
+		left:50%;
+		top:50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
+  }
+
+  .login-form {
+    padding: 50px;
+  }
+
+  .login-form-title {
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .login-field-wrap {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .login-form-input {
+    height: 40px;
+    padding-left: 5px;
+    font-size: 18px;
+  }
+
+  .login-form-button {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 300px;
+    height: 40px;
+    background-color: #FFBA08;
+    color: #111115;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  .login-form-button:hover {
+    opacity: 0.7;
+  }
+  .login-form-forget {
+    color: #111115;
+    text-decoration: none;
+  }
+
+  .register-wrap {
+    width: 400px;
+    height: 600px;
+		position:absolute;
+		left:50%;
+		top:45%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
+  }
+
+  .error-message {
+    color: red;
+  }

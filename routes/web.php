@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NovelController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,6 +38,12 @@ Route::get('/novels/{novel}', [NovelController::class, 'show']);
 
 
 // Show login
-Route::get('/login', [AuthController::class, 'index']);
+Route::get('/login', [UserController::class, 'index'])->name('login');
+
+// Create Login
+Route::get('/register', [UserController::class, 'create'])->name('register');
+
+// Store User
+Route::post('/register', [UserController::class, 'store']);
 
 

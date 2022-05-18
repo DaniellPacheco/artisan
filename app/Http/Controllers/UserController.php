@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
-class AuthController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +36,19 @@ class AuthController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formFields = $request->validate([
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
+            'password' => ['required', 'confirmed', 'min:8']
+        ]);
+
+        $formFields['password'] = bcrypt($formFields['password']);
+
+        $user = User::create($formFields);
+
+        auth()->login($user);
+
+        return redirect('/')->with('message', 'Você está logado com sucesso!');
+
     }
 
     /**
