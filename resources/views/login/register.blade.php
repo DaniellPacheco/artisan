@@ -27,6 +27,13 @@
                     </a>
                 </h1>
                 <fieldset class="login-field-wrap">
+                    <label for="name" class="login-form-label">Name</label>
+                    <input type="text" name="name" class="login-form-input" value="{{ old('name') }}">
+                    @error('email')
+                        <p class="error-message">{{ $message }}</p>                        
+                    @enderror
+                </fieldset>
+                <fieldset class="login-field-wrap">
                     <label for="Email" class="login-form-label">Email</label>
                     <input type="email" name="email" class="login-form-input" value="{{ old('email') }}">
                     @error('email')

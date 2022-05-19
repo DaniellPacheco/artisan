@@ -36,14 +36,26 @@ Route::get('/novels', [NovelController::class, 'index']);
 // Show Single Novel
 Route::get('/novels/{novel}', [NovelController::class, 'show']);
 
-
 // Show login
 Route::get('/login', [UserController::class, 'index'])->name('login');
+
+// Authenticate User
+Route::post('/login', [UserController::class, 'authenticate']);
 
 // Create Login
 Route::get('/register', [UserController::class, 'create'])->name('register');
 
 // Store User
 Route::post('/register', [UserController::class, 'store']);
+
+// Show All Users
+
+// Show Single User
+
+// Edit User
+
+// Update User
+
+// Delete User
 
 

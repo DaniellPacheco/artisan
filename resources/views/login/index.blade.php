@@ -19,7 +19,7 @@
     </head>
     <body>
         <main class="login-wrap">
-            <form action="/" method="POST" class="login-form">
+            <form action="/login" method="POST" class="login-form">
                 @csrf
                 <h1 class="login-form-title">
                     <a href="/">
@@ -28,7 +28,10 @@
                 </h1>
                 <fieldset class="login-field-wrap">
                     <label for="Email" class="login-form-label">Email</label>
-                    <input type="email" name="email" class="login-form-input">
+                    <input type="email" name="email" class="login-form-input" value="{{ old('email') }}">
+                    @error('email')
+                    <p class="error-message">{{ $message }}</p> 
+                    @enderror
                 </fieldset>
                 <fieldset class="login-field-wrap">
                     <label for="Password" class="login-form-label">Password</label>
