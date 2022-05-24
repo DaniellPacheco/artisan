@@ -17,7 +17,9 @@ class NovelController extends Controller
     }
 
     // Store New Novel
-    public function store() {
-        
+    public function store(Request $request) {
+        $formFields = $request->validate([
+            ''
+        ]);
     }
 }

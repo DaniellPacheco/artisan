@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('titulo', 65);
             $table->string('autor', 45);
+            $table->string('tags');
             $table->text('sinopse');
             $table->string('imagem', 45);
             $table->timestamps();

@@ -276,3 +276,20 @@ body {
   .error-message {
     color: red;
   }
+
+ /* Bloco Form */
+
+ .form-base {
+   width: 1000px;
+   height: 500px;
+   background-color: #fff;
+   box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
+   border-radius: 10px;
+   margin: 0 auto;
+ }
+
+ .form-base-title {
+   font-size: 22px;
+   color: #23232e;
+   padding: 20px 10px 10px 20px;
+ }
