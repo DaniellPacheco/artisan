@@ -35,10 +35,10 @@
             <tbody class="atualization-table-tbody">
                 <tr class="atualization-table-tbody-tr">
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">Capítulo 2500 - A Morte Dela</a>
+                        <a href="/">{Capítulo 2500 - A Morte Dela}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">I Will Eternal</a>
+                        <a href="/">{{ $novel->titulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
                         <a href="/">Ergen</a>

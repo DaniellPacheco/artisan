@@ -280,16 +280,58 @@ body {
  /* Bloco Form */
 
  .form-base {
-   width: 1000px;
-   height: 500px;
+   /* width: 1000px; */
+   width: 100%;
    background-color: #fff;
    box-shadow: rgba(255, 255, 255, 0.2) 0px 8px 24px;
    border-radius: 10px;
    margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
  }
 
  .form-base-title {
    font-size: 22px;
    color: #23232e;
    padding: 20px 10px 10px 20px;
+   text-align: center;
+ }
+
+ .form-base-fieldset {
+   /* border: 1px solid red; */
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   width: 70%;
+   
+ }
+
+ .form-base-fieldset-input {
+   border: 1px solid #23232e;
+   border-radius: 4px;
+   /* width: 500px; */
+   width: 100%;
+   padding: 10px;
+ }
+
+ .form-base-fieldset-input:focus {
+   border: 1px solid #FFBA08;
+ }
+
+ .form-base-fieldset-input-img {
+  border-radius: 4px;
+  width: 100%;
+ }
+
+ .form-base-button {
+   background: #FFBA08 !important;
+   border-radius: 4px;
+   width: 30%;
+   height: 40px;
+   margin: 20px 0;
+ }
+
+ .form-base-button:hover {
+  opacity: 0.7;
  }

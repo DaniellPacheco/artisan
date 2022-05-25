@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('novels', function (Blueprint $table){
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('titulo', 65);
             $table->string('autor', 45);
             $table->string('tags');
             $table->text('sinopse');
-            $table->string('imagem', 45);
+            $table->string('imagem')->nullable();
             $table->timestamps();
         });
     }
