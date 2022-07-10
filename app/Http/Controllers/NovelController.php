@@ -10,13 +10,22 @@ use Illuminate\Validation\Rule;
 class NovelController extends Controller
 {
     // Show All Novels
-    public function index(Novel $novel) {
-        $novels = DB::table('novels')->get();
-        // dd($novels);
+    public function index() {
+        // $novels = [];
+        // dd(Novel::all());
+        // // dd($novels);
 
-        return view('novels.index', [
-            // erro
-            'novels' => $novels
+        // return view('novels.index', [
+        //     // erro
+        //     'novels' => $novels
+        // ]);
+    }
+
+    // Show Single Novel
+    public function show($id) {
+        $novel = Novel::find($id);
+        return view('novels.show', [
+            'novel' => $novel
         ]);
     }
 
@@ -45,4 +54,6 @@ class NovelController extends Controller
 
         return redirect('/')->with('message', 'Novel criada com sucesso!');
     }
+
+
 }

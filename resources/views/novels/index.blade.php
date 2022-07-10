@@ -38,7 +38,7 @@
                         <a href="/">Capítulo 2500 - A Morte Dela</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">{{ $novels[0]['titulo'] }}</a>
+                        <a href="/">SLADSD</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
                         <a href="/">Ergen</a>

@@ -33,43 +33,22 @@
                 </tr>
             </thead>
             <tbody class="atualization-table-tbody">
+                @foreach ($novels as $novel)
                 <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">
-                        <a href="/">{Capítulo 2500 - A Morte Dela}</a>
-                    </td>
                     <td class="atualization-table-tbody-tr-text">
                         <a href="/">{{ $novel->titulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">Ergen</a>
+                        <a href="/"> {{ $novel->tags }}</a>
                     </td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
+                    <td class="atualization-table-tbody-tr-text">
+                        <a href="/">{{ $novel->autor }}</a>
+                    </td>
+                    <td class="atualization-table-tbody-tr-text">{{ $novel->created_at->format('d-m-Y'); }}</td>
                 </tr>
-                <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">Capítulo 1</td>
-                    <td class="atualization-table-tbody-tr-text">I Will Eternal</td>
-                    <td class="atualization-table-tbody-tr-text">Ergen</td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
-                </tr>
-                <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">Capítulo 1</td>
-                    <td class="atualization-table-tbody-tr-text">I Will Eternal</td>
-                    <td class="atualization-table-tbody-tr-text">Ergen</td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
-                </tr>
-                <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">Capítulo 1</td>
-                    <td class="atualization-table-tbody-tr-text">I Will Eternal</td>
-                    <td class="atualization-table-tbody-tr-text">Ergen</td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </section>
-
-
-
-
-
 
 </x-layout>

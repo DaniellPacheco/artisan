@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NovelController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -26,9 +27,7 @@ use Illuminate\Support\Facades\Route;
 // delete - Delete listing
 
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 // Show All Novels
 Route::get('/novels', [NovelController::class, 'index']);
@@ -50,6 +49,7 @@ Route::delete('/novels/{novel}', [NovelController::class, 'destroy']);
 
 // Show Single Novel
 Route::get('/novels/{novel}', [NovelController::class, 'show']);
+
 // Show login
 Route::get('/login', [UserController::class, 'index'])->name('login');
 
