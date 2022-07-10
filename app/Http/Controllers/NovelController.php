@@ -38,6 +38,7 @@ class NovelController extends Controller
     public function store(Request $request) {
         $formField = $request->validate([
             'titulo' => ['required', Rule::unique('novels', 'titulo')],
+            'nacionalidade' => 'required',
             'autor' => ['required', Rule::unique('novels', 'autor')],
             'tags' => 'required',
             'sinopse' => 'required',

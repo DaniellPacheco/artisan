@@ -12,6 +12,7 @@ class Novel extends Model
     protected $fillable = [
         'user_id',
         'titulo',
+        'nacionalidade',
         'autor',
         'tags',
         'sinopse',

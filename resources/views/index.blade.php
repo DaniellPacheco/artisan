@@ -39,7 +39,7 @@
                         <a href="/">{{ $novel->titulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/"> {{ $novel->tags }}</a>
+                        <a href="/novels/{{ $novel->id }}"> {{ $novel->titulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
                         <a href="/">{{ $novel->autor }}</a>

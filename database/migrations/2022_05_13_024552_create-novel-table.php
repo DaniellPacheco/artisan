@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('titulo', 65);
-            $table->string('autor', 45);
-            $table->string('tags');
             $table->text('sinopse');
+            $table->string('autor', 45);
+            $table->string('nacionalidade', 20);
+            $table->string('tags');
             $table->string('imagem')->nullable();
             $table->timestamps();
         });

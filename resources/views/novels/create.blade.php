@@ -12,6 +12,13 @@
             @enderror
         </fieldset>
         <fieldset class="form-base-fieldset">
+            <label class="form-base-fieldset-label" for="nacionalidade">Nacionalidade</label>
+            <input class="form-base-fieldset-input" type="text" name="nacionalidade">
+            @error('nacionalidade')
+                <p class="error-message">{{ $message }}</p> 
+            @enderror
+        </fieldset>
+        <fieldset class="form-base-fieldset">
             <label class="form-base-fieldset-label" for="autor">Autor</label>
             <input class="form-base-fieldset-input" type="text" name="autor">
             @error('autor')

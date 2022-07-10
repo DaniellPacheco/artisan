@@ -33,10 +33,10 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/novels', [NovelController::class, 'index']);
 
 // Create Novel Page
-Route::get('/novels/create', [NovelController::class, 'create']);
+Route::get('/novels/create', [NovelController::class, 'create'])->middleware('auth');
 
 // Store Novel
-Route::post('/novels', [NovelController::class, 'store']);
+Route::post('/novels', [NovelController::class, 'store'])->middleware('auth');
 
 // Edit Novel Page
 Route::get('/novels/{novel}/edit', [NovelController::class, 'edit']);
@@ -49,6 +49,22 @@ Route::delete('/novels/{novel}', [NovelController::class, 'destroy']);
 
 // Show Single Novel
 Route::get('/novels/{novel}', [NovelController::class, 'show']);
+
+// Create Novel Chapter
+Route::get('/novels/chapters/create', [NovelController::class, 'create'])->middleware('auth');
+
+// Store Novel Chapter
+//Route::post('/novels/chapters', [ChapterController::class, 'store']);
+// Edit Novel Chapter
+
+// Delete Novel Chapter
+
+// Update Novel Chapter
+
+// Show Novel Chapter
+//Route::get('/novels/{novel}/chapter/{chapter}', [ChapterController:class, 'show']);
+
+
 
 // Show login
 Route::get('/login', [UserController::class, 'index'])->name('login');
