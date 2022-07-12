@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NovelController;
 use App\Http\Controllers\UserController;
@@ -51,10 +52,11 @@ Route::delete('/novels/{novel}', [NovelController::class, 'destroy']);
 Route::get('/novels/{novel}', [NovelController::class, 'show']);
 
 // Create Novel Chapter
-Route::get('/novels/chapters/create', [NovelController::class, 'create'])->middleware('auth');
+Route::get('/novels/chapters/create', [ChapterController::class, 'create'])->middleware('auth');
 
 // Store Novel Chapter
-//Route::post('/novels/chapters', [ChapterController::class, 'store']);
+Route::post('/novels/chapters', [ChapterController::class, 'store'])->middleware('auth');
+
 // Edit Novel Chapter
 
 // Delete Novel Chapter
