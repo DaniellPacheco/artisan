@@ -13,6 +13,7 @@ class Chapter extends Model
         'user_id',
         'novel_id',
         'titulo',
+        'capitulo',
         'conteudo'
     ];
 
