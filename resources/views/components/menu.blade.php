@@ -8,8 +8,8 @@
         <div class="line3"></div>
     </div>
     <ul class="nav-list">
-        <li><a class="nav-link" href="#">Projetos</a></li>
-        <li><a class="nav-link" href="#">Contato</a></li>
+        <li><a class="nav-link" href="/novels">Projetos</a></li>
+        <li><a class="nav-link" href="/contato">Contato</a></li>
         @auth
         <li><a class="default-button" href="/home">Dashboard</a></li>
         @else

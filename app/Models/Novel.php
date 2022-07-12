@@ -20,4 +20,8 @@ class Novel extends Model
         'created_at',
         'updated_at'
     ];
+
+    public function chapters() {
+        return $this->hasMany(Chapter::class);
+    }
 }
