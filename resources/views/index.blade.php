@@ -8,18 +8,17 @@
     </section>
 
     <section class="spotlight">
-        <h2 class="spotlight-title">Destaques</h2>
+        <h2 class="spotlight-title">
+            Destaques
+        </h2>
         <div class="spotlight-group">
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
+            @foreach ($novels as $novel)
+            
+                <a href="/novels/{{ $novel->id }}">
+                    <img class="spotlight-group-image" src="{{ asset('storage/' . $novel->imagem) }}" alt="Ilustração da novel {{ $novel->titulo }}">
+                </a>    
+
+            @endforeach
         </div>
     </section>
     <section class="atualization">
@@ -33,18 +32,18 @@
                 </tr>
             </thead>
             <tbody class="atualization-table-tbody">
-                @foreach ($novels as $novel)
+                @foreach ($chapters as $chapter)
                 <tr class="atualization-table-tbody-tr">
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">{{ $novel->titulo }}</a>
+                        <a href="/">{{ $chapter->titulo_capitulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/novels/{{ $novel->id }}"> {{ $novel->titulo }}</a>
+                        <a href="/novels/{{ $chapter->id }}"> {{ $chapter->titulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
                         <a href="/">{{ $novel->autor }}</a>
                     </td>
-                    <td class="atualization-table-tbody-tr-text">{{ $novel->created_at->format('d-m-Y'); }}</td>
+                    <td class="atualization-table-tbody-tr-text">{{ $novel->created_at->format('d-m-Y') }}</td>
                 </tr>
                 @endforeach
             </tbody>

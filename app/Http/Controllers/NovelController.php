@@ -9,33 +9,36 @@ use Illuminate\Validation\Rule;
 
 class NovelController extends Controller
 {
-    // Show All Novels
-    public function index() {
-        // $novels = [];
-        // dd(Novel::all());
-        // // dd($novels);
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $novels = DB::table('novels')->get();
 
-        // return view('novels.index', [
-        //     // erro
-        //     'novels' => $novels
-        // ]);
+        return view('novels.index', compact('novels'));
     }
 
-    // Show Single Novel
-    public function show($id) {
-        $novel = Novel::find($id);
-        return view('novels.show', [
-            'novel' => $novel
-        ]);
-    }
-
-    // Show Create Form
-    public function create() {
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
         return view('novels.create');
     }
 
-    // Store New Novel
-    public function store(Request $request) {
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
         $formField = $request->validate([
             'titulo' => ['required', Rule::unique('novels', 'titulo')],
             'nacionalidade' => 'required',
@@ -54,7 +57,54 @@ class NovelController extends Controller
         Novel::create($formField);
 
         return redirect('/')->with('message', 'Novel criada com sucesso!');
+
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $novel = Novel::find($id);
+        return view('novels.show', [
+            'novel' => $novel
+        ]);
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

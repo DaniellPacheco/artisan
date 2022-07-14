@@ -16,9 +16,9 @@
             @enderror
         </fieldset>
         <fieldset class="form-base-fieldset">
-            <label class="form-base-fieldset-label" for="titulo">Título Capítulo</label>
-            <input class="form-base-fieldset-input" type="text" name="titulo" value="{{ old('titulo') }}">
-            @error('titulo')
+            <label class="form-base-fieldset-label" for="titulo_capitulo">Título Capítulo</label>
+            <input class="form-base-fieldset-input" type="text" name="titulo_capitulo" value="{{ old('titulo_capitulo') }}">
+            @error('titulo_capitulo')
                 <p class="error-message">{{ $message }}</p> 
              @enderror
         </fieldset>
