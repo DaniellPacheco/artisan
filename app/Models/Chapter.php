@@ -12,7 +12,7 @@ class Chapter extends Model
     protected $fillable = [
         'user_id',
         'novel_id',
-        'titulo',
+        'titulo_capitulo',
         'capitulo',
         'conteudo'
     ];

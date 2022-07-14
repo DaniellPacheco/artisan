@@ -41,7 +41,7 @@ class ChapterController extends Controller
     {
         $formFields = $request->validate([
             'novel_id' => 'required',
-            'titulo' => 'required',
+            'titulo_capitulo' => 'required',
             'capitulo' => 'required',
             'conteudo' => 'required'
         ]);
