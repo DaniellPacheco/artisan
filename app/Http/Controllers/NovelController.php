@@ -16,7 +16,8 @@ class NovelController extends Controller
      */
     public function index()
     {
-        $novels = DB::table('novels')->get();
+        // $novels = DB::table('novels')->get();
+        $novels = Novel::all();
 
         return view('novels.index', compact('novels'));
     }
