@@ -83,7 +83,8 @@ class NovelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $novel = Novel::find($id);
+        return view('novels.edit', compact('novel'));
     }
 
     /**
@@ -93,9 +94,26 @@ class NovelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Novel $novel)
     {
-        //
+        $formField = $request->validate([
+            'titulo' => ['required', Rule::unique('novels', 'titulo')],
+            'nacionalidade' => 'required',
+            'autor' => ['required', Rule::unique('novels', 'autor')],
+            'tags' => 'required',
+            'sinopse' => 'required',
+            'imagem' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
+        ]);
+
+        if($request->hasFile('imagem')) {
+            $formField['imagem'] = $request->file('imagem')->store('novels', 'public');
+        }
+
+        $formField['user_id'] = auth()->id();
+
+        $novel->update($formField);
+
+        return back()->with('message', 'Novel atualizada com sucesso!');
     }
 
     /**
@@ -104,8 +122,9 @@ class NovelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Novel $novel)
     {
-        //
+        $novel->delete();
+        return redirect('/')->with('message', 'Novel deletada com sucesso');
     }
 }

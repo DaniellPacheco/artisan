@@ -30,6 +30,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
+/**
+ * NOVELS
+ */
+
 // Show All Novels
 Route::get('/novels', [NovelController::class, 'index']);
 
@@ -40,16 +44,20 @@ Route::get('/novels/create', [NovelController::class, 'create'])->middleware('au
 Route::post('/novels', [NovelController::class, 'store'])->middleware('auth');
 
 // Edit Novel Page
-Route::get('/novels/{novel}/edit', [NovelController::class, 'edit']);
+Route::get('/novels/{novel}/edit', [NovelController::class, 'edit'])->middleware('auth');
 
 // Update Novel
-Route::put('/novels/{novel}', [NovelController::class, 'update']);
+Route::put('/novels/{novel}', [NovelController::class, 'update'])->middleware('auth');
 
 // Delete Novel
-Route::delete('/novels/{novel}', [NovelController::class, 'destroy']);
+Route::delete('/novels/{novel}', [NovelController::class, 'destroy'])->middleware('auth');
 
 // Show Single Novel
 Route::get('/novels/{novel}', [NovelController::class, 'show']);
+
+/**
+ *  CHAPTERS
+ */
 
 // Create Novel Chapter
 Route::get('/novels/chapters/create', [ChapterController::class, 'create'])->middleware('auth');
@@ -58,13 +66,16 @@ Route::get('/novels/chapters/create', [ChapterController::class, 'create'])->mid
 Route::post('/novels/chapters', [ChapterController::class, 'store'])->middleware('auth');
 
 // Edit Novel Chapter
+Route::get('/novels/chapters/{chapter}/edit', [ChapterController::class, 'edit'])->middleware('auth');
 
 // Delete Novel Chapter
+Route::delete('/novels/chapters/{chapter}', [ChapterController::class, 'destroy'])->middleware('auth');
 
 // Update Novel Chapter
+Route::put('/novels/chapters/{chapter}', [ChapterController::class, 'update'])->middleware('auth');
 
 // Show Novel Chapter
-//Route::get('/novels/{novel}/chapter/{chapter}', [ChapterController:class, 'show']);
+Route::get('/novels/{novel}/chapters/{chapter}', [ChapterController::class, 'show']);
 
 
 
