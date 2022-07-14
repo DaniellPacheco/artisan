@@ -16,6 +16,7 @@ class HomeController extends Controller
         // $chapters = DB::select(DB::raw('select chapters.*, novels.titulo from chapters join novels on chapters.novel_id = novels.id'));
         $chapters = Chapter::join('novels', 'chapters.novel_id', '=', 'novels.id')
                             ->select(['chapters.*', 'novels.titulo'])
+                            ->latest()
                             ->get();
                             
         return view('index', compact('novels', 'chapters'));

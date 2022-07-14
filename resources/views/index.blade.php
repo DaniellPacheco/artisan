@@ -35,7 +35,7 @@
                 @foreach ($chapters as $chapter)
                 <tr class="atualization-table-tbody-tr">
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">{{ $chapter->titulo_capitulo }}</a>
+                        <a href="/novels/{{ $chapter->novel_id }}/chapters/{{ $chapter->capitulo }}">Capítulo: {{ $chapter->capitulo . " ". $chapter->titulo_capitulo }}</a>
                     </td>
                     <td class="atualization-table-tbody-tr-text">
                         <a href="/novels/{{ $chapter->id }}"> {{ $chapter->titulo }}</a>
