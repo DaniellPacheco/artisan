@@ -212,9 +212,9 @@ body {
     padding: 5px 0;
   }
 
-  .atualization-table-tbody-tr:hover {
+  /* .atualization-table-tbody-tr:hover {
     border-bottom: 1px solid #FFBA08; 
-  }
+  } */
 
   /* LOGIN */
 
@@ -416,3 +416,29 @@ body {
   color: white;
   background-color: #E92D2D;
  }
+
+ .button-Japonesa {
+  padding: 5px 2px;
+  border-radius: 4px;
+  color: black;
+  background-color: white;
+ }
+
+ .button-Brasileira {
+  padding: 5px 2px;
+  border-radius: 4px;
+  color: black;
+  background-color: greenyellow;
+ }
+
+ .button-Americana {
+  padding: 5px 2px;
+  border-radius: 4px;
+  color: white;
+  background-color: blue;
+ }
+
+
+.default-color-button {
+  color: #FFBA08;
+}

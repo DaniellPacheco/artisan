@@ -6,6 +6,7 @@ use App\Models\Chapter;
 use App\Models\Novel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\Rule;
 
 class ChapterController extends Controller
 {
@@ -26,7 +27,8 @@ class ChapterController extends Controller
      */
     public function create()
     {
-        $novels = DB::table('novels')->get();
+        // $novels = DB::table('novels')->get();
+        $novels = Novel::findAll();
 
         return view('chapter.create', compact('novels'));
     }
@@ -42,7 +44,7 @@ class ChapterController extends Controller
         $formFields = $request->validate([
             'novel_id' => 'required',
             'titulo_capitulo' => 'required',
-            'capitulo' => 'required',
+            'capitulo' => ['required', Rule::unique('chapters', 'capitulo')],
             'conteudo' => 'required'
         ]);
 
@@ -59,9 +61,11 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idNovel, $idChapter)
     {
-        //
+        $chapter = Chapter::where('novel_id', $idNovel)->where('capitulo', $idChapter)->get();
+
+        return view('chapter.show', compact('chapter'));
     }
 
     /**
@@ -70,9 +74,12 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idNovel, $idChapter)
     {
-        //
+
+        $chapter = Chapter::where('novel_id', $idNovel)->where('capitulo', $idChapter)->get();
+
+        return view('chapter.edit', compact('chapter'));
     }
 
     /**
@@ -82,9 +89,18 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Chapter $chapter)
     {
-        //
+        $formFields = $request->validate([
+            'novel_id' => 'required',
+            'titulo_capitulo' => 'required',
+            'capitulo' => ['required', Rule::unique('chapters', 'capitulo')],
+            'conteudo' => 'required'
+        ]);
+
+        $chapter->update($formFields);
+
+        return redirect('/novels/'.$formFields['novel_id'].'/chapter/'.$formFields['capitulo'])->with('message', 'Capítulo atualizado com sucesso');
     }
 
     /**
@@ -93,8 +109,10 @@ class ChapterController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Chapter $chapter)
     {
-        //
+        $chapter->delete();
+
+        return redirect('/')->with('message', 'Capítulo excluido com sucesso');
     }
 }
