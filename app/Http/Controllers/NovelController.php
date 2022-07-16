@@ -97,9 +97,9 @@ class NovelController extends Controller
     public function update(Request $request, Novel $novel)
     {
         $formField = $request->validate([
-            'titulo' => ['required', Rule::unique('novels', 'titulo')],
+            'titulo' => 'required',
             'nacionalidade' => 'required',
-            'autor' => ['required', Rule::unique('novels', 'autor')],
+            'autor' => 'required',
             'tags' => 'required',
             'sinopse' => 'required',
             'imagem' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
@@ -125,6 +125,7 @@ class NovelController extends Controller
     public function destroy(Novel $novel)
     {
         $novel->delete();
+        
         return redirect('/')->with('message', 'Novel deletada com sucesso');
     }
 }

@@ -11,7 +11,7 @@
         <li><a class="nav-link" href="/novels">Projetos</a></li>
         <li><a class="nav-link" href="/contato">Contato</a></li>
         @auth
-        <li><a class="default-button" href="/home">Dashboard</a></li>
+        <li><a class="default-button" href="/admin">Dashboard</a></li>
         @else
         <li><a class="default-button" href="/login">Entrar</a></li>
         @endauth

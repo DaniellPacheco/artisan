@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NovelController;
@@ -78,6 +79,13 @@ Route::put('/novels/chapters/{chapter}', [ChapterController::class, 'update'])->
 Route::get('/novels/{novel}/chapters/{chapter}', [ChapterController::class, 'show']);
 
 
+/**
+ * Dashboard
+ */
+Route::get('/admin', [AdminController::class, 'dashboard'])->middleware('auth');
+
+// Novel Manager
+Route::get('/admin/novel-list', [AdminController::class, 'novelList'])->middleware('auth');
 
 // Show login
 Route::get('/login', [UserController::class, 'index'])->name('login');

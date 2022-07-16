@@ -1,6 +1,7 @@
 <x-layout>
     <form action="/novels/chapters" method="POST" class="form-base" enctype="multipart/form-data">
         @csrf
+        @method('PUT')
         <h1 class="form-base-title">
             <i class="fa-solid fa-pencil" style="padding-right: 20px"></i> ADICIONAR CAPÍTULO
         </h1>
