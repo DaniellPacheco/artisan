@@ -140,6 +140,7 @@ body {
   .spotlight, 
   .projectNovels {
     width: 65vw;
+    margin-top: 40px;
   }
 
   .spotlight-title, 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
 use App\Models\Novel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,7 @@ class NovelController extends Controller
         $formField = $request->validate([
             'titulo' => ['required', Rule::unique('novels', 'titulo')],
             'nacionalidade' => 'required',
-            'autor' => ['required', Rule::unique('novels', 'autor')],
+            'autor' => 'required',
             'tags' => 'required',
             'sinopse' => 'required',
             'imagem' => ['image', 'mimes:jpeg,png,jpg,gif,svg'],
@@ -57,7 +58,7 @@ class NovelController extends Controller
 
         Novel::create($formField);
 
-        return redirect('/')->with('message', 'Novel criada com sucesso!');
+        return redirect('/novels/')->with('message', 'Novel criada com sucesso!');
 
     }
 
@@ -70,9 +71,10 @@ class NovelController extends Controller
     public function show($id)
     {
         $novel = Novel::find($id);
-        return view('novels.show', [
-            'novel' => $novel
-        ]);
+        $chapters = Chapter::all()->where('novel_id', '=', $id);
+        $spotlights = Novel::all()->where('tags', '=', $novel['tags'])->where('id', '!=', $id);
+
+        return view('novels.show', compact('novel', 'chapters', 'spotlights'));
     }
 
     /**
