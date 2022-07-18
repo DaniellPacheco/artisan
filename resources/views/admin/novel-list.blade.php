@@ -1,5 +1,6 @@
 <x-layout>
     <a href="/novels/create" class="default-button">Adicionar Novel</a>
+    <a href="/admin/" class="default-button">Voltar</a>
     <section class="atualization">
         <table class="atualization-table">
             <thead class="atualization-table-thead">

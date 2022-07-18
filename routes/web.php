@@ -87,6 +87,13 @@ Route::get('/admin', [AdminController::class, 'dashboard'])->middleware('auth');
 // Novel Manager
 Route::get('/admin/novel-list', [AdminController::class, 'novelList'])->middleware('auth');
 
+// Chapter Manager
+Route::get('/admin/chapter-list', [AdminController::class, 'chapterList']);
+
+/**
+ * Login
+ */
+
 // Show login
 Route::get('/login', [UserController::class, 'index'])->name('login');
 

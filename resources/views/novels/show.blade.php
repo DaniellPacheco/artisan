@@ -45,24 +45,14 @@
                 </tr>
             </thead>
             <tbody class="atualization-table-tbody">
+                @foreach ($chapters as $chapter)
                 <tr class="atualization-table-tbody-tr">
                     <td class="atualization-table-tbody-tr-text">
-                        <a href="/">Capítulo 2500 - A Morte Dela</a>
+                        <a href="/novels/{{ $chapter->novel_id }}/chapters/{{ $chapter->capitulo }}">Capítulo: {{ $chapter->capitulo . " ". $chapter->titulo_capitulo }}</a>
                     </td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
+                    <td class="atualization-table-tbody-tr-text">{{ $novel->created_at->format('d-m-Y') }}</td>
                 </tr>
-                <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">Capítulo 1</td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
-                </tr>
-                <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">Capítulo 1</td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
-                </tr>
-                <tr class="atualization-table-tbody-tr">
-                    <td class="atualization-table-tbody-tr-text">Capítulo 1</td>
-                    <td class="atualization-table-tbody-tr-text">17/05/2022</td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </section>
@@ -70,16 +60,13 @@
     <section class="spotlight">
         <h2 class="spotlight-title">Novels Parecidas</h2>
         <div class="spotlight-group">
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
-            <a href="/"><img class="spotlight-group-image" src="{{ asset('images/al.jpg') }}" alt="novel"></a>
+            @foreach ($spotlights as $spotlight)
+            
+            <a href="/novels/{{ $spotlight->id }}">
+                <img class="spotlight-group-image" src="{{ asset('storage/' . $spotlight->imagem) }}" alt="Ilustração da novel {{ $spotlight->titulo }}">
+            </a>    
+
+        @endforeach
         </div>
 
 

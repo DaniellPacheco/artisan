@@ -28,7 +28,7 @@ class ChapterController extends Controller
     public function create()
     {
         // $novels = DB::table('novels')->get();
-        $novels = Novel::findAll();
+        $novels = Novel::all();
 
         return view('chapter.create', compact('novels'));
     }
@@ -44,7 +44,7 @@ class ChapterController extends Controller
         $formFields = $request->validate([
             'novel_id' => 'required',
             'titulo_capitulo' => 'required',
-            'capitulo' => ['required', Rule::unique('chapters', 'capitulo')],
+            'capitulo' => 'required',
             'conteudo' => 'required'
         ]);
 
